@@ -1,4 +1,4 @@
-TextReplacement = {"Shortcut":"Replacement"}
+TextReplacement = {"shortcut":"replacement"}
 userinloop = True
 
 print(TextReplacement) #to check whether the code works or not
@@ -10,11 +10,13 @@ def Command():
 
 def EditShortcut(n):
     if n == "adst":
-        shortcut = str(input("Enter shortcut: "))
-        replacement = str(input("Enter replacement: "))
+        shortcut = str(input("Enter shortcut: ")).lower()
+        replacement = str(input("Enter replacement: ")).lower()
         TextReplacement.update({shortcut:replacement})
     elif n == "rmst":
+        print(f"Choose the Shortcut you want to remove\n{TextReplacement}")
         TextReplacement.pop(Command())
+        print(f"Shortcut has been removed successfully \n{TextReplacement}")
     else:
         print("Unidentified method please chooose from the following\n blah blah placeholder")
 
@@ -27,7 +29,8 @@ while userinloop:
     if UserNavigation == "edst":
         print(f"{TextReplacement}\n rmst - to remove shortcut\n adst - to add shortcut\n")
         EditShortcut(Command())
-        
+    elif UserNavigation == "shst":
+        print(f"{TextReplacement}")
     
     elif UserNavigation == "exit":
             print("Exiting CLi")
